@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Product Catalog</h1>
+
+    <mat-grid-list cols="3" rowHeight="300px">
+      <mat-grid-tile *ngFor="let product of products; let i = index">
+        <mat-card class="product-card">
+          <mat-card-header>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Price: ${{ product.price }}</p>
+            <mat-checkbox 
+              [(ngModel)]="product.selected"
+              (change)="onProductSelect(product)"
+            >
+              Add to cart
+            </mat-checkbox>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="openBottomSheet()"
+    >
+      View Selected Items ({{ selectedProducts.length }})
+    </button>
+  </div>

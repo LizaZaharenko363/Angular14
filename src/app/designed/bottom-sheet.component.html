@@ -1,0 +1,8 @@
+<mat-nav-list>
+    <h2 mat-dialog-title>Selected Products</h2>
+    @for (product of data.products; track product) {
+      <mat-list-item>
+        {{ product.name }} - ${{ product.price }}
+      </mat-list-item>
+    }
+  </mat-nav-list>
